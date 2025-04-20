@@ -98,6 +98,7 @@ void Student::showAvailableCourses() const {
     }
 }
 
+/*
 bool Student::checkPrerequisite(const Course &course) const {
     std::vector<Course> prerequisites = course.getPrerequisites();
 
@@ -118,6 +119,7 @@ bool Student::checkPrerequisite(const Course &course) const {
 
     return true;
 }
+ */
 
 void Student::leftPrerequisites(std::deque<Course> leftCourses) const {
     if (leftCourses.empty()) {
