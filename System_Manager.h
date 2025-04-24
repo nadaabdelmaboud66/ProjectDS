@@ -4,13 +4,14 @@
 
 #ifndef SYSTEM_MANAGER_H
 #define SYSTEM_MANAGER_H
-#include <Student.h>
-#include <Course.h>
-#inlcude <Admin.h>
+#include "Student.h"
+#include "Course.h"
+#include"Admin.h"
 #include <iostream>
 #include <vector>
 #include <stack>
-#include <pair>
+//#include <pair>
+#include <utility>
 #include <unordered_map>
 #include <map>
 #include <string>
@@ -28,6 +29,7 @@ unordered_map<string, Admin> admins;
 public:
 System_Manager();
 
+
 void editAdminPass(string username, string password);
 void editStudentPass(string username, string password);
 void showAvailableCourses();
@@ -36,6 +38,21 @@ bool isStudentEligible(string id, string courseCode);
 Student getStudent(string id);
 Admin getAdmin(string username);
 Course getCourse(string courseID);
+
+
+//--------------------------------------------- FILES FUNCTIONS---------------------------------------------
+
+void readStudentsFromFile();
+void writeStudentsToFile();
+
+void readAdminsFromFile();
+void writeAdminsToFile();
+
+void readCoursesFromFile();  
+void writeCoursesToFile();
+
+
+
 };
 
 

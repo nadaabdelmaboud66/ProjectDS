@@ -1,0 +1,3 @@
+name,id,username,password,addedcourses
+Mohamed,A001,admin1,pass123,CS101;MA102
+Rana,A002,admin2,secure456,PH103;EN104

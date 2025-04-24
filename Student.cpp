@@ -98,7 +98,6 @@ void Student::showAvailableCourses() const {
     }
 }
 
-/*
 bool Student::checkPrerequisite(const Course &course) const {
     std::vector<Course> prerequisites = course.getPrerequisites();
 
@@ -119,7 +118,6 @@ bool Student::checkPrerequisite(const Course &course) const {
 
     return true;
 }
- */
 
 void Student::leftPrerequisites(std::deque<Course> leftCourses) const {
     if (leftCourses.empty()) {
@@ -187,3 +185,55 @@ void Student::registerCourse() {
         std::cout << "❌ Course ID not found in available courses.\n";
     }
 }
+
+void Student::dropCourse(const std::string &courseID) {
+    auto it = std::find_if(registeredCourses.begin(), registeredCourses.end(), [&](const Course& course) {
+        return course.getCourseID() == courseID;
+    });
+
+    if (it != registeredCourses.end()) {
+        std::cout << " Dropped course: " << it->getTitle() << " (ID: " << it->getCourseID() << ")\n";
+        registeredCourses.erase(it);
+    } else {
+        std::cout << "⚠️ You are not registered in a course with ID: " << courseID << "\n";
+    }
+}
+
+void Student::generateTranscript() const {
+    std::cout << "\n=========== STUDENT TRANSCRIPT ===========\n";
+    std::cout << " Name  : " << name << "\n";
+    std::cout << " ID    : " << id << "\n";
+    std::cout << " Email : " << email << "\n";
+    std::cout << " Year  : " << year << "\n";
+    std::cout << " GPA   : " << std::fixed << std::setprecision(2) << calcGPA() << "\n";
+
+    std::cout << "\n Completed Courses:\n";
+    if (completedCourses.empty()) {
+        std::cout << " --- No courses completed yet---\n";
+    } else {
+        std::cout << std::left << std::setw(25) << "Course Name"
+                  << std::setw(15) << "Semester"
+                  << std::setw(10) << "Grade" << "\n";
+
+        std::cout << std::string(50, '-') << "\n";
+        for (const auto& course : completedCourses) {
+            std::cout << std::left << std::setw(25) << course.course.getTitle()
+                      << std::setw(15) << course.semester
+                      << std::setw(10) << course.grade << "\n";
+        }
+    }
+
+    std::cout << "\n Registered Courses:\n";
+    if (registeredCourses.empty()) {
+        std::cout << " - No courses currently registered.\n";
+    } else {
+        for (const auto& course : registeredCourses) {
+            std::cout << " - " << course.getTitle() << " (ID: " << course.getCourseID()
+                      << ", Credit Hours: " << course.getCreditHour() << ")\n";
+        }
+    }
+
+    std::cout << "===========================================\n";
+}
+
+

@@ -1,0 +1,6 @@
+id,title,credithoures,instructor,prerequisites
+CS101,Introduction to Programming,3.0,Dr. Adel,
+CS102,Data Structures,3.0,Dr. Sara,CS101
+CS201,Algorithms,3.0,Dr. Hany,CS102
+CS301,Operating Systems,4.0,Dr. Rania,CS201
+CS303,Database Systems,3.0,Dr. Nabil,CS102

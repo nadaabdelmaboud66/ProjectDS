@@ -49,9 +49,20 @@ public:
 
     void addAvailableCourse(const Course &course);
 
+    void dropCourse(const std::string &courseID);
+
+    void generateTranscript() const;
+
+
+
     const std::vector<Course> &getRegisteredCourses() const { return registeredCourses; }
     const std::vector<Course> &getAvailableCourses() const { return availableCourses; }
     const std::vector<CompletedCourse> &getCompletedCourses() const { return completedCourses; }
+
+
+
+   
+
 };
 
 #endif // STUDENT_H

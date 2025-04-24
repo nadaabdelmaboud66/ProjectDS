@@ -1,0 +1,4 @@
+name,id,year,email,gpa,completedCourses,registeredCourses,completedCreditHours
+Nada,2025001,Second,nada@example.com,3.85,CS101|MA101,CS201|PH102,36
+Ahmed,2025002,Third,ahmed@example.com,3.22,CS101|MA101|CS201,PH103,45
+Sara,2025003,First,sara@example.com,0,,CS101,0
